@@ -12,7 +12,8 @@ Cross-compiling Rust code for ARM64 (AArch64) architecture is fairly straightfor
 2. **Install cross-compiler toolchain**:
    For Debian/Ubuntu:
    ```
-   sudo apt install gcc-aarch64-linux-gnu
+   apt update
+   apt install -y curl build-essential gcc-aarch64-linux-gnu libssl-dev:aarch64 pkg-config
    ```
 
 ## Configuration
