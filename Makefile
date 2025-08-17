@@ -31,12 +31,15 @@ build:
 	#build
 	cargo build -r --target x86_64-apple-darwin
 
-run:
+gnu:
+# 	!!! copy to terminal to run:
 	export RUSTFLAGS="-C target-feature=+crt-static -C link-arg=-static-libgcc"
 	cargo build --release --target aarch64-unknown-linux-gnu
 	scp target/aarch64-unknown-linux-gnu/release/hello_arm openailab@192.168.3.200:~
 	ssh openailab@192.168.3.200 './hello_arm'
 musl:
-	cross build --release --target aarch64-unknown-linux-musl
+# 	cross build --release --target aarch64-unknown-linux-musl
+	cargo build --release --target aarch64-unknown-linux-musl
+
 	scp target/aarch64-unknown-linux-musl/release/hello_arm openailab@192.168.3.200:~/hello_arm_musl
 	ssh openailab@192.168.3.200 './hello_arm_musl'
