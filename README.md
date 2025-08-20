@@ -63,6 +63,29 @@ cargo build --release --target aarch64-unknown-linux-musl
 
 USE Docker:
 
+--- install docker:
+
+https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+
+grant Permission:
+
+```
+# Add your user to the docker group to grant access to the Docker socket:bash
+
+sudo usermod -aG docker $USER
+
+# Apply the group change:Log out and log back in, or run:bash
+
+newgrp docker
+
+# Verify Docker access:bash
+
+docker ps
+```
+
+
+
+
 ## Alternative: Using `cross`
 
 For a containerized approach, you can use the `cross` tool:
